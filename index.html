@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="description" content=""/>
+    <meta name="Keywords" content=""/>
+    <link href="css/animate.min.css" type="text/css" rel="stylesheet"/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.waypoints.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".animation_1").animated("flipInY", "fadeOutDown");
+            $(".animation_2").animated("fadeInLeft", "rotateOut");
+            $(".animation_3").animated("fadeInRight", "bounceOut");
+            $(".animation_4").animated("fadeInRight", "bounceOut");
+            $(".animation_5").animated("fadeInRight", "bounceOut");
+        });
+    </script>
+
+    <style>
+        body {
+            background: #fefefe;
+            margin: 0;
+            padding: 0;
+            font: 16px/24px Arial, Tahoma, "Trebuchet MS", sans-serif;
+            color: #3d3d3d;
+        }
+
+        .main {
+            width: 500px;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .Text {
+            margin: 20px 20px 20px 20px;
+            padding: 20px 20px 20px 20px;
+            border: dashed 2px #16ee03;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #2794ce;
+        }
+
+        img {
+            width: 400px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1>Animate.css + waypoints.js</h1>
+    <div class="Text"><a href="https://daneden.github.io/animate.css/">Animate.css</a></div>
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+
+    <div class="animation_1 animated"><img src="img/dog1.jpg"/></div>
+    <div class="animation_2 animated"><img src="img/dog2.jpg"/></div>
+    <div class="animation_3 animated"><img src="img/dog3.jpg"/></div>
+    <div class="animation_4 animated"><img src="img/dog4.jpg"/></div>
+    <div class="animation_5 animated"><img src="img/dog5.jpg"/></div>
+
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+    <div class="Text"><p>Text</p></div>
+</div>
+
+<script>
+
+    (function ($) {
+        $.fn.animated = function (inEffect, outEffect) {
+            $(this).css("opacity", "0").addClass("animated").waypoint(function (dir) {
+                if (dir === "down") {
+                    $(this).removeClass(outEffect).addClass(inEffect).css("opacity", "1");
+                } else {
+                    $(this).removeClass(inEffect).addClass(outEffect).css("opacity", "1");
+                }
+                ;
+            }, {
+                offset: "70%"
+            }).waypoint(function (dir) {
+                if (dir === "down") {
+                    $(this).removeClass(inEffect).addClass(outEffect).css("opacity", "1");
+                } else {
+                    $(this).removeClass(outEffect).addClass(inEffect).css("opacity", "1");
+                }
+                ;
+            }, {
+                offset: "5%"
+            });
+        };
+    })(jQuery);
+</script>
+</body>
+</html>
